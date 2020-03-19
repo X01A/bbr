@@ -13,5 +13,5 @@
     regexp: '^net\.ipv4\.tcp_congestion_control'
     create: yes
 
-- name: Reload sysctl
+- name: Reload sysctl # noqa 301
   command: sysctl -p
