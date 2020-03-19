@@ -1,6 +1,6 @@
 galaxy_info:
   author: Indexyz
-  description: Ansible role to deploy v2ray
+  description: Install new kernel and enable TCP BBR congestion control
   company: X01A
 
   license: MIT
@@ -13,6 +13,7 @@ galaxy_info:
       - 7
 
   galaxy_tags:
-  - nginx
+  - bbr
+  - kernel
 
 dependencies: []
