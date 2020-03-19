@@ -5,8 +5,7 @@ Install new kernel and enable TCP BBR congestion control
 ```yaml
 - hosts: servers
   roles:
-    - role: indexyz.bbr
-      start_nginx: yes
+  - indexyz.bbr
 ```
 
 ### Support System
