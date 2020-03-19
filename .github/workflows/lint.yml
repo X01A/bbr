@@ -1,0 +1,24 @@
+name: Lint
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+
+    - name: Install ansible-lint
+      run: pip install --upgrade ansible-lint
+
+    - name: Lint source code
+      run: ansible-lint tests/test.yml

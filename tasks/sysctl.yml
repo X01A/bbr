@@ -1,0 +1,14 @@
+---
+- name: Set net.core.default_qdisc
+  lineinfile:
+    path: /etc/sysctl.conf
+    line: net.core.default_qdisc = fq
+    regexp: '^net\.core\.default_qdisc'
+    create: yes
+
+- name: Set net.ipv4.tcp_congestion_control
+  lineinfile:
+    path: /etc/sysctl.conf
+    line: net.ipv4.tcp_congestion_control = bbr
+    regexp: '^net\.ipv4\.tcp_congestion_control'
+    create: yes
