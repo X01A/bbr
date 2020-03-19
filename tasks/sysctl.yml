@@ -12,3 +12,6 @@
     line: net.ipv4.tcp_congestion_control = bbr
     regexp: '^net\.ipv4\.tcp_congestion_control'
     create: yes
+
+- name: Reload sysctl
+  command: sysctl -p
