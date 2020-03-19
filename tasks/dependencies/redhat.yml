@@ -1,13 +1,10 @@
 ---
-- name: Install Xen release repo
-  when: ansible_distribution_major_version == '7'
-  yum:
-    name: centos-release-xen-48
-    state: present
-
-- name: Set Xen release repo to disable
+- name: Import Xen release repo
   yum_repository:
     name: centos-virt-xen-48
+    baseurl: http://mirror.centos.org/centos/$releasever/virt/$basearch/xen-48
+    gpgkey: https://www.centos.org/keys/RPM-GPG-KEY-CentOS-SIG-Virtualization
+    gpgcheck: yes
     enabled: no
 
 - name: Upgrade kernel to latest # noqa 403
