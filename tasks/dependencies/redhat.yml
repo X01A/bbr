@@ -10,7 +10,7 @@
     name: centos-virt-xen-48
     enabled: no
 
-- name: Upgrade kernel to latest
+- name: Upgrade kernel to latest # noqa 403
   yum:
     name: kernel
     enablerepo: centos-virt-xen-48
