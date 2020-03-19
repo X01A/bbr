@@ -2,6 +2,7 @@
 - name: Import Xen release repo
   yum_repository:
     name: centos-virt-xen-48
+    description: CentOS Xen Virtualization SIG 4.8 Repo
     baseurl: http://mirror.centos.org/centos/$releasever/virt/$basearch/xen-48
     gpgkey: https://www.centos.org/keys/RPM-GPG-KEY-CentOS-SIG-Virtualization
     gpgcheck: yes
