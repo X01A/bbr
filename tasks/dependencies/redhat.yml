@@ -13,4 +13,5 @@
     name: kernel
     enablerepo: centos-virt-xen-48
     state: latest
+    update_cache: yes
   notify: reboot machine
