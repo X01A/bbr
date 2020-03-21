@@ -1,17 +1,12 @@
 ---
 - name: Set net.core.default_qdisc
-  lineinfile:
-    path: /etc/sysctl.conf
-    line: net.core.default_qdisc = fq
-    regexp: '^net\.core\.default_qdisc'
-    create: yes
+  sysctl:
+    name: net.core.default_qdisc
+    value: fq
+    state: present
 
 - name: Set net.ipv4.tcp_congestion_control
-  lineinfile:
-    path: /etc/sysctl.conf
-    line: net.ipv4.tcp_congestion_control = bbr
-    regexp: '^net\.ipv4\.tcp_congestion_control'
-    create: yes
-
-- name: Reload sysctl # noqa 301
-  command: sysctl -p
+  sysctl:
+    name: net.ipv4.tcp_congestion_control
+    value: bbr
+    state: present
