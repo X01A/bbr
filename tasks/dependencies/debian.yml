@@ -1,0 +1,27 @@
+---
+# Jessie’s apt doesn’t support set check-valid-until flag for one repository
+#
+# See also: https://unix.stackexchange.com/questions/508724/failed-to-fetch-jessie-backports-repository
+- name: Disable check-valid-until
+  when: ansible_distribution_major_version == '8'
+  lineinfile:
+    path: /etc/apt/apt.conf.d/99no-check-valid-until
+    create: yes
+    line: Acquire::Check-Valid-Until no;
+
+- name: Add jessie-backports apt repo
+  when: ansible_distribution_major_version == '8'
+  apt_repository:
+    repo: deb http://archive.debian.org/debian jessie-backports main
+    state: present
+    update_cache: yes
+    filename: jessie-backports
+
+- name: Install newest kernel # noqa 403
+  when: ansible_distribution_major_version == '8'
+  apt:
+    name: linux-image-amd64
+    state: latest
+    default_release: jessie-backports
+    update_cache: yes
+  notify: reboot machine

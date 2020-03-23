@@ -1,4 +1,9 @@
 ---
 - include_tasks: dependencies/{{ ansible_os_family | lower }}.yml
+
+# Run handlers, like reboot machine
+- name: Run handlers
+  meta: flush_handlers
+
 - import_tasks: module.yml
 - import_tasks: sysctl.yml
