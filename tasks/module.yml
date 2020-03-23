@@ -1,0 +1,11 @@
+---
+- name: Modprobe bbr
+  modprobe:
+    name: tcp_bbr
+    state: present
+
+- name: Add tcp_bbr to modules-load.d
+  lineinfile:
+    create: yes
+    path: /etc/modules-load.d/bbr.conf
+    line: tcp_bbr
